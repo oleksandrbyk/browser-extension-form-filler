@@ -1,4 +1,16 @@
 $("#loan").on("click", () => sendMessage({ method: SELECTLOAN, data: "debtConsolidation_creditCard" }))
+$("#rent-or-own").on("click", () => sendMessage({ method: SELECTRENTOROWN, data: "mortgage" }))
+$("#employment-status").on("click", () => sendMessage({ method: SELECTEMPLOYMENTSTATUS, data: "Self-Employed" }))
+$("#personal-anual-income").on("click", () => sendMessage({ method: SELECTPERSONALANUALINCOME, data: "240000" }))
+$("#current-home-address").on("click", () => sendMessage({ method: SETCURRENTHOMEADDRESS, data: "1600 Amphitheatre Pkwy, Mountain View, CA 94043" }))
+$("#address-detailed").on("click", () => sendMessage({ method: SETADDRESSDETAILED, data: "" }))
+$("#phone-number").on("click", () => sendMessage({ method: SETPHONENUMBER, data: "1234567890" }));
 $("#first-name").on("click", () => sendMessage({ method: SETFIRSTNAME, data: "John" }));
 $("#last-name").on("click", () => sendMessage({ method: SETLASTNAME, data: "Maze" }));
+$("#month").on("click", () => sendMessage({ method: SETBIRTHMONTH, data: "3" }));
+$("#day").on("click", () => sendMessage({ method: SETBIRTHDAY, data: "3" }));
+$("#year").on("click", () => sendMessage({ method: SETBIRTHYEAR, data: "1996" }));
+$("#email").on("click", () => sendMessage({ method: SETEMAIL, data: "test@test.com" }));
+$("#ssn").on("click", () => sendMessage({ method: SETSSN, data: "078-05-1120" }));
+$("#setCheckedBox").on("click", () => sendMessage({ method: SETCHECKBOX, data: true }));
 $("#submit").on("click", () => sendMessage({ method: SUBMIT }));
