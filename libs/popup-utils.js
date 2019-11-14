@@ -1,7 +1,13 @@
 // Send messages from popup to content-script
-const sendMessage = (data) => {
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.tabs.sendMessage(tabs[0].id, data, function (response) {});
+const sendTabMessage = (tabId, data, cb) => {
+  chrome.tabs.sendMessage(tabId, data, function (response) {
+    cb(response);
+  });
+}
+
+const sendRuntimeMessage = (data, cb) => {
+  chrome.runtime.sendMessage(data, function(response) {
+    cb(response);
   });
 }
 

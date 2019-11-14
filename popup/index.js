@@ -61,5 +61,5 @@ $("#submit").on("click", () => {
   // get form data as a JSON.
   let formData = convertFormToJSON($("form"))
   formData["#disclosures"] = formData.hasOwnProperty("#disclosures")
-  sendMessage({ method: SUBMIT, data: formData });
+  sendRuntimeMessage({ method: SUBMIT, data: formData }, (response) => {});
 });

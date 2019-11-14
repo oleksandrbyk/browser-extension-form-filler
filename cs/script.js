@@ -24,7 +24,7 @@ const fieldsList = {
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   try {
-    if (request.method === SUBMIT) {
+    if (request.method === PREFILL) {
       $.each(fieldsList, (key, value) => {
         switch (value) {
           case 0:
@@ -38,11 +38,12 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             break;
         }
       });
-      sendResponse({result: 200});
+      sendResponse({ result: 200 });
     }
   }
   catch (err) {
     // error catch
     console.error(err);
   }
+  return true;
 });
