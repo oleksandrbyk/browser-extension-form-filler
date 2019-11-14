@@ -7,13 +7,21 @@
     "persistent": false,
     "scripts": [
       "constant.js",
-      "libs/popup-utils.js",
+      "libs/message-utils.js",
       "bg/background.js"
     ]
   },
   "content_scripts": [ {
     "matches": ["http://*/*", "https://*/*"],
-    "js": ["libs/jquery.min.js", "libs/utils.js", "constant.js", "cs/script.js"],
+    "js": [
+      "libs/jquery.min.js",
+      "libs/utils.js",
+      "constant.js",
+      "libs/dom-utils.js",
+      "libs/message-utils.js",
+      "libs/prefill-utils.js",
+      "cs/script.js"
+    ],
     "run_at": "document_start"
   }],
   "permissions": [
