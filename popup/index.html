@@ -7,42 +7,101 @@
 <body>
   <div class="container">
     <p class="h2 text-center text-primary">The Form Filler</p>
-    <div class="row">
-      <button type="button" id="loan" class="btn btn-secondary btn-sm">What is the loan for</button>
-      <button type="button" id="rent-or-own" class="btn btn-secondary btn-sm ml-2 mr-2">Rent or own?</button>
-    </div>
+    <form>
+      <div class="d-flex justify-content-around mb-3">
+        <div>
+          <Label class="text-muted">What is the loan for?</Label>
+          <select name="#loanPurpose" class="form-control form-control-sm">
+            <option disabled="" value="" selected>Choose one</option>
+          </select>
+        </div>
+        <div>
+          <Label class="text-muted">Rent or own?</Label>
+          <select name="#homeOwnership" class="form-control form-control-sm">
+            <option disabled="" value="" selected>Choose one</option>
+          </select>
+        </div>
+        <div>
+          <Label class="text-muted">Employment Status</Label>
+          <select name="#employmentStatus" class="form-control form-control-sm">
+            <option disabled="" value="" selected>Choose one</option>
+          </select>
+        </div>
+      </div>
 
-    <div class="row">
-      <button type="button" id="employment-status" class="btn btn-secondary btn-sm">Employment Status</button>
-      <button type="button" id="personal-anual-income" class="btn btn-secondary btn-sm">Personal Annual Income</button>
-    </div>
+      <div class="row">
+        <div class="input-group input-group-sm mb-3">
+          <input type="text" name="input[name=annualGrossIncome]" class="form-control" placeholder="
+          Personal Annual Income (before taxes)" aria-describedby="basic-addon2">
+        </div>
+      </div>
 
-    <div class="row">
-      <button type="button" id="current-home-address" class="btn btn-secondary btn-sm">Current Home Address</button>
-      <button type="button" id="address-detailed" class="btn btn-secondary btn-sm">Apt, Suite, Unit, etc.</button>
-    </div>
+      <div class="row">
+        <div class="input-group input-group-sm mb-3">
+          <input type="text" name="#google-address-input" class="form-control" placeholder="Current Home Address" aria-describedby="basic-addon2">
+          <input type="text" name="#aptNumber" class="form-control" placeholder="Apt, Suite, Unit, etc." aria-describedby="basic-addon2">
+        </div>
+      </div>
 
-    <div class="row">
-      <button type="button" id="first-name" class="btn btn-secondary btn-sm">First Name</button>
-      <button type="button" id="last-name" class="btn btn-secondary btn-sm">Last Name</button>
-      <button type="button" id="phone-number" class="btn btn-secondary btn-sm">Phone Number</button>
-    </div>
+      <div class="row">
+        <div class="input-group input-group-sm mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="">Full Name</span>
+          </div>
+          <input type="text" name="#firstName" class="form-control">
+          <input type="text" name="#lastName" class="form-control">
+        </div>
+      </div>
 
-    <div class="row">
-      <button type="button" id="month" class="btn btn-secondary btn-sm">Month</button>
-      <button type="button" id="day" class="btn btn-secondary btn-sm">Day</button>
-      <button type="button" id="year" class="btn btn-secondary btn-sm">Year</button>
-      <button type="button" id="email" class="btn btn-secondary btn-sm">Email Address</button>
-    </div>
+      <div class="row">
+        <div class="input-group input-group-sm mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Phone Number</span>
+          </div>
+          <input type="text" name="#phone" placeholder="(000) 000-0000" class="form-control" aria-describedby="inputGroup-sizing-sm">
+        </div>
+      </div>
 
-    <div class="row">
-      <button type="button" id="ssn" class="btn btn-secondary btn-sm">Social Security Number</button>
-      <button type="button" id="setCheckedBox" class="btn btn-secondary btn-sm">set Checkbox to confirm</button>
-    </div>
+      <div class="justify-content-start mb-3">
+        <label class="text-muted">Date of Birthday: </label>
+        <div class="d-flex">
+          <select name="#birthMonth" class="form-control form-control-sm">
+            <option disabled="" value="" selected>Month</option>
+          </select>
+          <select name="#birthDay" class="form-control form-control-sm">
+            <option disabled="" value="" selected>Day</option>
+          </select>
+          <select name="#birthYear" class="form-control form-control-sm">
+            <option disabled="" value="" selected>Year</option>
+          </select>
+        </div>
+      </div>
 
-    <div class="row">
-      <button type="button" id="submit" class="btn btn-success btn-block btn-sm">Submit</button>
-    </div>
+      <div class="row">
+        <div class="input-group input-group-sm mb-3">
+          <input type="text" name="#email" class="form-control" placeholder="Eamil Address" aria-describedby="basic-addon2">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-group input-group-sm mb-3">
+          <input type="text" name="#socialSecurity" class="form-control" placeholder="Social Security Number" aria-describedby="basic-addon2">
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" name="#disclosures">
+          <label class="form-check-label" for="defaultCheck1">
+              Check this box to confirm
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <button type="button" id="submit" class="btn btn-success btn-block btn-sm">Submit</button>
+      </div>
+    </form>
   </div>
 </body>
 <script src="../libs/jquery.min.js"></script>

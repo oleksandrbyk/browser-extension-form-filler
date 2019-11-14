@@ -1,13 +1,11 @@
 body {
-  width:425px;
-  padding: 15px;
+  width:450px;
+  padding-top: 20px;
+  padding-bottom: 15px;
 }
-.row{
-  margin-top: 5px;
-}
-.row > button + button {
-  margin-left: 5px;
-}
-.row + button {
-  margin-top: 7px;
+
+.row {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
 }

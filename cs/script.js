@@ -1,72 +1,45 @@
-// Recieve messages from popup
+/*
+  in case of:
+    0: Create "input" event to React rendered input.
+    1: Create "change" event to React rendered Select or input.
+    2: Create "click" event to React rendered checkbox.
+*/
+const fieldsList = {
+  "#loanPurpose": 1,
+  "#homeOwnership": 1,
+  "#employmentStatus": 1,
+  "input[name=annualGrossIncome]": 0,
+  "#google-address-input": 0,
+  "#aptNumber": 0,
+  "#firstName": 0,
+  "#lastName": 0,
+  "#phone": 1,
+  "#birthMonth": 1,
+  "#birthDay": 1,
+  "#birthYear": 1,
+  "#email": 0,
+  "#socialSecurity": 0,
+  "#disclosures": 2,
+}
+
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   try {
-    switch (request.method) {
-      // Set select "What is the loan for?"
-      case SELECTLOAN:
-        selectOption("#loanPurpose", request.data);
-        break;
-      // Set select "Rent or own?"
-      case SELECTRENTOROWN:
-        selectOption("#homeOwnership", request.data);
-        break;
-      // Set select "Employment Status"
-      case SELECTEMPLOYMENTSTATUS:
-        selectOption("#employmentStatus", request.data);
-        break;
-      // Set select "Personal Annual Income (before taxes)"
-      case SELECTPERSONALANUALINCOME:
-        changeInputValue("input[name=annualGrossIncome]", request.data);
-        break;
-      // Set select "Current Home Address"
-      case SETCURRENTHOMEADDRESS:
-        changeInputValue("#google-address-input", request.data);
-        break;
-      // Set select "Apt, Suite, Unit, etc."
-      case SETADDRESSDETAILED:
-        changeInputValue("#aptNumber", request.data);
-        break;
-      // Set first name
-      case SETFIRSTNAME:
-        changeInputValue("#firstName", request.data);
-        break;
-      // Set last name
-      case SETLASTNAME:
-        changeInputValue("#lastName", request.data);
-        break;
-      // Set select "Phone Number"
-      case SETPHONENUMBER:
-          selectOption("#phone", request.data);
-        break;
-      // Set the month of birthday
-      case SETBIRTHMONTH:
-        selectOption("#birthMonth", request.data);
-        break;
-      // Set the day of birthday
-      case SETBIRTHDAY:
-        selectOption("#birthDay", request.data);
-        break;
-      // Set the year of birthday
-      case SETBIRTHYEAR:
-        selectOption("#birthYear", request.data);
-        break;
-      // Set email address
-      case SETEMAIL:
-        changeInputValue("#email", request.data);
-        break;
-      // Set social security number
-      case SETSSN:
-        changeInputValue("#socialSecurity", request.data);
-        break;
-      case SETCHECKBOX:
-        setChecked("#disclosures", request.data);
-        break;
-      // Click button "See My Options"
-      case SUBMIT:
-        $("#seeMyOptionsButton").trigger("click");
-        break;
+    if (request.method === SUBMIT) {
+      $.each(fieldsList, (key, value) => {
+        switch (value) {
+          case 0:
+            changeInputValue(key, request.data[key]);
+            break;
+          case 1:
+            selectOption(key, request.data[key]);
+            break;
+          case 2:
+            setChecked(key, request.data[key]);
+            break;
+        }
+      });
+      sendResponse({result: 200});
     }
-    sendResponse({result: 200});
   }
   catch (err) {
     // error catch
